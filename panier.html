@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/f74fe2c694.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Panier</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="index.html">
+            <img id="logo" src="images/logo.png" alt="" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarContent"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            id="navbarContent"
+            class="collapse navbar-collapse justify-content-end"
+          >
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html">Accueil</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="produit.html">Produits</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="panier.html">Panier</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <form class="mt-4">
+        <div class="mb-3">
+          <div>
+            <p>Produit</p>
+          </div>
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Ouvrir pour choisir votre article</option>
+            <option value="1">Ours Brun</option>
+            <option value="2">Ours Crème</option>
+            <option value="3">Ours blanc</option>
+          </select>
+          <div class="col-md-6">
+            <label for="prix">Prix</label>
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="row g-3">
+          <div class="col">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Prénom"
+              aria-label="First name"
+            />
+          </div>
+          <div class="col">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Nom"
+              aria-label="Last name"
+            />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">Email</label>
+          <input type="email" class="form-control" id="inputEmail4" />
+        </div>
+        <div class="col-md-6">
+          <label for="inputPassword4" class="form-label">Mot de passe</label>
+          <input type="password" class="form-control" id="inputPassword4" />
+        </div>
+        <div class="col-12">
+          <label for="inputAddress" class="form-label">Adresse</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputAddress"
+            placeholder="40 rue de la"
+          />
+        </div>
+        <div class="col-12">
+          <label for="inputAddress2" class="form-label"
+            >Complément d'adresse</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="inputAddress2"
+            placeholder="Appartement, studio, ou pavillon"
+          />
+        </div>
+        <div class="col-md-8">
+          <label for="inputCity" class="form-label">Ville</label>
+          <input type="text" class="form-control" id="inputCity" />
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="inputZip" class="form-label">Code Postal</label>
+          <input type="text" class="form-control" id="inputZip" />
+        </div>
+
+        <div class="col-12">
+          <a class="btn btn-primary mb-3" href="remerciement.html" role="button"
+            >Valider</a
+          >
+        </div>
+      </form>
+      <!--FOOTER-->
+      <footer class="fixed-bottom">
+        <div class="row bg-dark d-flex flex-row-reverse">
+          <div
+            class="
+              col-lg-8 col-md-8 col-sm-12
+              d-flex
+              justify-content-center
+              align-self-center
+              text-white
+            "
+          >
+            <p>&copy; 2021OrinocoTeddyBear | All rights reserved.</p>
+          </div>
+          <div
+            class="
+              col-lg-4 col-md-4 col-sm-12
+              d-flex
+              justify-content-center
+              align-self-center
+            "
+          >
+            <ul class="nav">
+              <li class="nav-item footer-li">
+                <a href="#">
+                  <i class="fab fa-facebook-square text-white"></i>
+                </a>
+              </li>
+              <li class="nav-item footer-li">
+                <a href="#">
+                  <i class="fab fa-instagram text-white"></i>
+                </a>
+              </li>
+              <li class="nav-item footer-li">
+                <a href="#">
+                  <i class="fab fa-twitter text-white"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

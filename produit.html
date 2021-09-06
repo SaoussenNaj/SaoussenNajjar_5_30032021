@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/f74fe2c694.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Produit</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="index.html">
+            <img id="logo" src="images/logo.png" alt="" />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarContent"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            id="navbarContent"
+            class="collapse navbar-collapse justify-content-end"
+          >
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html">Accueil</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="produit.html">Produits</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="panier.html">Panier</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div class="container mt-4">
+      <div class="card p-4 m-4">
+        <div class="row">
+          <div class="col-6">
+            <div class="img-wrap">
+              <img class="card-img-top" src="images" alt="" id="productImage" />
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row bg-light bold">Nom Produit :</div>
+            <div class="row bg-dark-gray" id="productName">${nomProduit}</div>
+            <div class="row bg-light bold">Couleur :</div>
+            <div class="row bg-dark-gray" id="productColor">${couleur}</div>
+            <div class="row bg-light bold">Description :</div>
+            <div class="row bg-dark-gray" id="productDescription">
+              ${description}
+            </div>
+            <div class="row bg-light bold">Prix :</div>
+
+            <div class="row bg-dark-gray" id="productPrice">€</div>
+            <button class="btn btn-primary">Ajouter au panier</button>
+          </div>
+        </div>
+      </div>
+
+      <!--FOOTER-->
+      <footer class="fixed-bottom">
+        <div class="row bg-dark d-flex flex-row-reverse">
+          <div
+            class="
+              col-lg-8 col-md-8 col-sm-12
+              d-flex
+              justify-content-center
+              align-self-center
+              text-white
+            "
+          >
+            <p>&copy; 2021OrinocoTeddyBear | All rights reserved.</p>
+          </div>
+          <div
+            class="
+              col-lg-4 col-md-4 col-sm-12
+              d-flex
+              justify-content-center
+              align-self-center
+            "
+          >
+            <ul class="nav">
+              <li class="nav-item footer-li">
+                <a href="#">
+                  <i class="fab fa-facebook-square text-white"></i>
+                </a>
+              </li>
+              <li class="nav-item footer-li">
+                <a href="#">
+                  <i class="fab fa-instagram text-white"></i>
+                </a>
+              </li>
+              <li class="nav-item footer-li">
+                <a href="#">
+                  <i class="fab fa-twitter text-white"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="js/produit.js"></script>
+  </body>
+</html>
