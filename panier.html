@@ -57,20 +57,25 @@
       <form class="mt-4">
         <div class="mb-3">
           <div>
-            <p>Produit</p>
+            <h3>Panier</h3>
           </div>
-          <select class="form-select" aria-label="Default select example">
-            <option selected>Ouvrir pour choisir votre article</option>
-            <option value="1">Ours Brun</option>
-            <option value="2">Ours Crème</option>
-            <option value="3">Ours blanc</option>
-          </select>
+          <div class="col-md-6">
+            <label for="nom">Nom Produit</label>
+            <input type="text" class="form-control" />
+          </div>
           <div class="col-md-6">
             <label for="prix">Prix</label>
             <input type="text" class="form-control" />
           </div>
+          <div class="col-md-6">
+            <label for="quantite">Quantité</label>
+            <input type="text" class="form-control" />
+          </div>
         </div>
         <div class="row g-3">
+          <div>
+            <h3>Coordonnées Personnelles :</h3>
+          </div>
           <div class="col">
             <input
               type="text"

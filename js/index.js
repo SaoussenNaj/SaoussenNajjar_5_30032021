@@ -13,8 +13,9 @@ function getTeddies() {
 }
 
 // Fonction qui va afficher les teddies
+
 function displayTeddies(teddie) {
-  // Voir documentation sur ImportNode
+
   const templateElt = document.getElementById("template");
   const cloneElt = document.importNode(templateElt.content, true);
 
@@ -23,10 +24,5 @@ function displayTeddies(teddie) {
   cloneElt.getElementById("price").textContent = teddie.price / 100 + " €";
   cloneElt.getElementById("detail").href = "/produit.html?id=" + teddie._id;
 
-  // Regarder appendchild
   document.getElementById("produits").appendChild(cloneElt);
 }
-
-// Faire la structure HTML en responsive
-// Afficher les teddys en dynamique sur la page d'accueil.
-// Etape 2 :
