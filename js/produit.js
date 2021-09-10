@@ -37,7 +37,7 @@ function displayTeddie(teddie) {
   document.getElementById("productPrice").innerHTML = teddie.price / 100 + " €";
   document.getElementById("productImage").src = teddie.imageUrl;
 }
-// Declaration d'une variable qte pour les valeurs quantitesaisie par l'utilisateur
+// Declaration d'une variable qte pour la valeur "quantite" saisie par l'utilisateur
 let qte = 1;
 // Ajout d'un eventListener quand la quantite change
 let a = document.getElementById("qte");
@@ -61,7 +61,7 @@ btn.addEventListener("click", function (event) {
     idProduit: selectedTeddie._id,
     nomProduit: selectedTeddie.name,
     prixProduit: selectedTeddie.price / 100 + "€",
-    quantiteproduit: qte,
+    quantiteproduit: parseInt(qte),
   };
   console.log(optionProduit);
   // //-----Déclaration de la varriable "produitsEnregistresLocalStorage dans laquelle on met  key et value qui sont dans le localStorage
@@ -71,29 +71,54 @@ btn.addEventListener("click", function (event) {
   // console.log(produitsEnregistresLocalStorage);
 
   // Fenetre pop-up de confirmation
-  // function popupConfirmation() {
-  //   if (
-  //     window.confirm(
-  //       `Votre article a bien été enregistré, voulez vous continuer ou annuler?`
-  //     )
-  //   ) {
-  //     window.location.href = "panier.html";
-  //   } else {
-  //     window.location.href = "index.html";
-  //   }
-  // }
+  function popupConfirmation() {
+    if (
+      window.confirm(
+        `Votre article a bien été enregistré, voulez vous continuer ou annuler?`
+      )
+    ) {
+      window.location.href = "panier.html";
+    } else {
+      window.location.href = "index.html";
+    }
+  }
+
+  // fonction pour modifier quantite
+  function updateQte(produit, quantiteAajouter) {
+    produit.quantiteproduit += quantiteAajouter;
+    return produit;
+  }
 
   // --- Si le panier existe déjà dans le localstorage :
 
   if (produitsEnregistresLocalStorage) {
-    produitsEnregistresLocalStorage.push(optionProduit);
-    localStorage.setItem(
-      "panier",
-      JSON.stringify(produitsEnregistresLocalStorage)
-    );
+    let produitExist = false;
+    for (i = 0; i < produitsEnregistresLocalStorage.length; i++) {
+      if (
+        produitsEnregistresLocalStorage[i].idProduit === optionProduit.idProduit
+      ) {
+        produitExist = true;
+        produitsEnregistresLocalStorage[i] = updateQte(
+          produitsEnregistresLocalStorage[i],
+          optionProduit.quantiteproduit
+        );
+      }
+    }
 
-    console.log(produitsEnregistresLocalStorage);
-    // popupConfirmation();
+    if (produitExist === false) {
+      produitsEnregistresLocalStorage.push(optionProduit);
+      localStorage.setItem(
+        "panier",
+        JSON.stringify(produitsEnregistresLocalStorage)
+      );
+    } else {
+      localStorage.setItem(
+        "panier",
+        JSON.stringify(produitsEnregistresLocalStorage)
+      );
+    }
+
+    popupConfirmation();
 
     // --- Si le panier n'existe pas dans le localstorage :
   } else {
@@ -103,15 +128,35 @@ btn.addEventListener("click", function (event) {
       "panier",
       JSON.stringify(produitsEnregistresLocalStorage)
     );
-    console.log(produitsEnregistresLocalStorage);
-    // popupConfirmation();
+    // console.log(produitsEnregistresLocalStorage);
+    popupConfirmation();
   }
+
+  //Je dois verifier si le produit choisi est déjà present ou pas dans le panier:
+  //1-- je recuper l'id dans l'url
+  // if(id === optionProduit.idProduit ){
+  //   localStorage.removeItem(optionProduit);
+  //   let nouveauOptionProduit = produitsEnregistresLocalStorage.push(optionProduit);
+  //   localStorage.setItem("panier", JSON.stringify(nouveauOptionProduit));
+  // if (produitsEnregistresLocalStorage && id === optionProduit.idProduit) {
+  //     localStorage.removeItem(optionProduit);
+  //     produitsEnregistresLocalStorage.push(optionProduit);
+  //     localStorage.setItem(
+  //       "panier",
+  //       JSON.stringify(produitsEnregistresLocalStorage)
+  //     );
+  // }else{
+  //    produitsEnregistresLocalStorage.push(optionProduit);
+  //    localStorage.setItem(
+  //      "panier",
+  //      JSON.stringify(produitsEnregistresLocalStorage)
+  //    );
+
+  // }
+
+  //Je dois verifier si le produit choisi est déjà present ou pas dans le panier:
+  //1-- je recupère l'id dans l'url
+  //2-- je parcoure JSON pour verifier si ID existe :
+  // 2.1--si L'ID existe => je le supprime (removeItem) et on rajoute le nouveau produit avec ses nouvelles options
+  // 2.2-- s'il n'existe pas je l'ajoute
 });
-
-// LE LOCALSTORAGE ( MON PANIER )
-// Quantité  = 1 / Prix / ID du produit.
-
-// je recupere l'id dans l'url
-//(parcourir json) pour chercher si id existe
-// si l'id existe on le supprime (removeItem)
-// s'il n'existe pas je l'ajoute
