@@ -16,3 +16,25 @@
 .margin {
   margin-bottom: 40px;
 }
+.margin-right {
+  margin-right: 10px;
+}
+.style-black {
+  color: black;
+}
+.color-icon {
+  color: rgb(184, 48, 123);
+}
+.btn-style {
+  background-color: rgb(206, 65, 96);
+  border-color: rgb(206, 65, 96);
+}
+
+#container-cart,
+#emptyCart {
+  display: none;
+}
+.name-price {
+  display: flex;
+  justify-content: space-between;
+}

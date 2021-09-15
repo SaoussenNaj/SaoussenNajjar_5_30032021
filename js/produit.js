@@ -56,7 +56,7 @@ btn.addEventListener("click", function (event) {
   // 2 : Je stop l'event ( Bloquer le rechargement de la page )
   event.preventDefault();
 
-  //---- Déclaration de l'ensemble des variables qui seront enregistrés dans le locanStorage:
+  //---- Déclaration de l'ensemble des variables qui seront enregistrés dans le localStorage:
   let optionProduit = {
     idProduit: selectedTeddie._id,
     nomProduit: selectedTeddie.name,
@@ -64,24 +64,24 @@ btn.addEventListener("click", function (event) {
     quantiteproduit: parseInt(qte),
   };
   console.log(optionProduit);
-  // //-----Déclaration de la varriable "produitsEnregistresLocalStorage dans laquelle on met  key et value qui sont dans le localStorage
+  // //-----Déclaration de la variable "produitsEnregistresLocalStorage dans laquelle on met  key et value qui sont dans le localStorage
   let produitsEnregistresLocalStorage = JSON.parse(
     localStorage.getItem("panier")
   );
   // console.log(produitsEnregistresLocalStorage);
 
   // Fenetre pop-up de confirmation
-  function popupConfirmation() {
-    if (
-      window.confirm(
-        `Votre article a bien été enregistré, voulez vous continuer ou annuler?`
-      )
-    ) {
-      window.location.href = "panier.html";
-    } else {
-      window.location.href = "index.html";
-    }
-  }
+  // function popupConfirmation() {
+  //   if (
+  //     window.confirm(
+  //       `Votre article a bien été enregistré, voulez vous continuer ou annuler?`
+  //     )
+  //   ) {
+  //     window.location.href = "panier.html";
+  //   } else {
+  //     window.location.href = "index.html";
+  //   }
+  // }
 
   // fonction pour modifier quantite
   function updateQte(produit, quantiteAajouter) {
@@ -89,10 +89,11 @@ btn.addEventListener("click", function (event) {
     return produit;
   }
 
-  // --- Si le panier existe déjà dans le localstorage :
+  // --- Si le panier existe déjà dans le localstorage et si l'id produit existe aussi :
 
   if (produitsEnregistresLocalStorage) {
     let produitExist = false;
+    // Parcourir le tableau produit pour chercher si id existe ou pas
     for (i = 0; i < produitsEnregistresLocalStorage.length; i++) {
       if (
         produitsEnregistresLocalStorage[i].idProduit === optionProduit.idProduit
@@ -104,7 +105,7 @@ btn.addEventListener("click", function (event) {
         );
       }
     }
-
+// Si le produit n'existe pas dans le localStorage, on l'ajoute:
     if (produitExist === false) {
       produitsEnregistresLocalStorage.push(optionProduit);
       localStorage.setItem(
@@ -118,9 +119,9 @@ btn.addEventListener("click", function (event) {
       );
     }
 
-    popupConfirmation();
+    // popupConfirmation();
 
-    // --- Si le panier n'existe pas dans le localstorage :
+    // --- Si le produit n'existe pas dans le localstorage :
   } else {
     let produitsEnregistresLocalStorage = [];
     produitsEnregistresLocalStorage.push(optionProduit);
@@ -129,34 +130,7 @@ btn.addEventListener("click", function (event) {
       JSON.stringify(produitsEnregistresLocalStorage)
     );
     // console.log(produitsEnregistresLocalStorage);
-    popupConfirmation();
+    // popupConfirmation();
   }
-
-  //Je dois verifier si le produit choisi est déjà present ou pas dans le panier:
-  //1-- je recuper l'id dans l'url
-  // if(id === optionProduit.idProduit ){
-  //   localStorage.removeItem(optionProduit);
-  //   let nouveauOptionProduit = produitsEnregistresLocalStorage.push(optionProduit);
-  //   localStorage.setItem("panier", JSON.stringify(nouveauOptionProduit));
-  // if (produitsEnregistresLocalStorage && id === optionProduit.idProduit) {
-  //     localStorage.removeItem(optionProduit);
-  //     produitsEnregistresLocalStorage.push(optionProduit);
-  //     localStorage.setItem(
-  //       "panier",
-  //       JSON.stringify(produitsEnregistresLocalStorage)
-  //     );
-  // }else{
-  //    produitsEnregistresLocalStorage.push(optionProduit);
-  //    localStorage.setItem(
-  //      "panier",
-  //      JSON.stringify(produitsEnregistresLocalStorage)
-  //    );
-
-  // }
-
-  //Je dois verifier si le produit choisi est déjà present ou pas dans le panier:
-  //1-- je recupère l'id dans l'url
-  //2-- je parcoure JSON pour verifier si ID existe :
-  // 2.1--si L'ID existe => je le supprime (removeItem) et on rajoute le nouveau produit avec ses nouvelles options
-  // 2.2-- s'il n'existe pas je l'ajoute
+  
 });
