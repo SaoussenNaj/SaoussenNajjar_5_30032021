@@ -10,9 +10,6 @@
 .nav-items-color {
   color: brown;
 }
-.style-card {
-  width: 18 rem;
-}
 .margin {
   margin-bottom: 40px;
 }
@@ -34,7 +31,23 @@
 #emptyCart {
   display: none;
 }
-.name-price {
+.div-flex {
   display: flex;
   justify-content: space-between;
 }
+.padding {
+  padding-left: 20px;
+}
+.bold {
+  font-weight: bold;
+}
+.center {
+  text-align: center;
+  margin: 50px;
+  font-family: "Times New Roman", Times, serif;
+}
+.btnAdjascent {
+  display: flex;
+  justify-content: space-evenly;
+}
+

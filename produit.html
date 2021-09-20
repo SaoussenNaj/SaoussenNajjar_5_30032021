@@ -64,13 +64,11 @@
           </div>
           <div class="col-6">
             <div class="row bg-light bold">Nom Produit :</div>
-            <div class="row bg-dark-gray" id="productName">${nomProduit}</div>
+            <div class="row bg-dark-gray" id="productName"></div>
             <div class="row bg-light bold">Couleur :</div>
-            <div class="row bg-dark-gray" id="productColor">${couleur}</div>
+            <div class="row bg-dark-gray" id="productColor"></div>
             <div class="row bg-light bold">Description :</div>
-            <div class="row bg-dark-gray" id="productDescription">
-              ${description}
-            </div>
+            <div class="row bg-dark-gray" id="productDescription"></div>
             <div class="row bg-light bold">Prix :</div>
             <div class="row bg-dark-gray" id="productPrice">€</div>
             <div class="row bg-light bold">
@@ -92,9 +90,16 @@
                 <option value="10">10</option>
               </select>
             </div>
+            <div class="btnAdjascent">
             <button class="btn btn-primary mt-4" id="btnAjout">
               Ajouter au panier
             </button>
+            <div>
+              <a href="panier.html" class="btn btn-primary mt-4 text-right"
+                >Voir panier</a
+              >
+            </div>
+            </div>
           </div>
         </div>
       </div>

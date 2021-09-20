@@ -60,8 +60,9 @@ btn.addEventListener("click", function (event) {
   let optionProduit = {
     idProduit: selectedTeddie._id,
     nomProduit: selectedTeddie.name,
-    prixProduit: selectedTeddie.price / 100 + "€",
+    prixProduit: selectedTeddie.price / 100,
     quantiteproduit: parseInt(qte),
+    lienImage: selectedTeddie.imageUrl,
   };
   console.log(optionProduit);
   // //-----Déclaration de la variable "produitsEnregistresLocalStorage dans laquelle on met  key et value qui sont dans le localStorage
@@ -105,7 +106,7 @@ btn.addEventListener("click", function (event) {
         );
       }
     }
-// Si le produit n'existe pas dans le localStorage, on l'ajoute:
+    // Si le produit n'existe pas dans le localStorage, on l'ajoute:
     if (produitExist === false) {
       produitsEnregistresLocalStorage.push(optionProduit);
       localStorage.setItem(
@@ -132,5 +133,4 @@ btn.addEventListener("click", function (event) {
     // console.log(produitsEnregistresLocalStorage);
     // popupConfirmation();
   }
-  
 });
