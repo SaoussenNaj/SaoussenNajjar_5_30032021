@@ -1,8 +1,7 @@
 //-----Déclaration de la varriable "produitsEnregistresLocalStorage dans laquelle on met  key et value qui sont dans le localStorage
-let produitsEnregistresLocalStorage = JSON.parse(
-  localStorage.getItem("panier") || []
-);
-// Ajout || [] d'un tableau vide comme valeur initiale pour la methode reduce en dessous
+let produitsEnregistresLocalStorage =
+  JSON.parse(localStorage.getItem("panier")) || [];
+// Ajout || [] (resume de syntaxe de 4 cas: 0, false, undefined, null)d'un tableau vide comme valeur initiale pour la methode reduce en dessous
 // let produitsEnregistresLocalStorage =
 //   JSON.parse(localStorage.getItem("panier")) || [];
 
@@ -11,7 +10,7 @@ const cart = document.getElementById("container-cart");
 
 //1. afficher la liste des produits selectionnes
 //a. si le panier est vide:
-if (produitsEnregistresLocalStorage === null) {
+if (produitsEnregistresLocalStorage.length === 0) {
   document.getElementById("emptyCart").style = "display:block;";
 } else {
   document.getElementById("container-cart").style = "display:block;";
@@ -33,10 +32,16 @@ if (produitsEnregistresLocalStorage === null) {
     // une fois le clone fait supprimer les id:on supprime l'id car il se repete a chaque appel de produit (l'id est unique)
     cloneElt.getElementById("name").removeAttribute("id");
     cloneElt.getElementById("price").textContent =
-      produitsEnregistresLocalStorage[i].prixProduit + " €";
+      "Prix Unitaire : " +
+      " " +
+      produitsEnregistresLocalStorage[i].prixProduit +
+      " €";
     cloneElt.getElementById("price").removeAttribute("id");
     cloneElt.getElementById("qte").textContent =
-      "x" + produitsEnregistresLocalStorage[i].quantiteproduit;
+      " Quantité : " +
+      " " +
+      "x" +
+      produitsEnregistresLocalStorage[i].quantiteproduit;
     cloneElt.getElementById("qte").removeAttribute("id");
     document.getElementById("panier").appendChild(cloneElt);
   }
@@ -82,27 +87,153 @@ console.log(prixTotal);
 document.getElementById("containerMontant").innerHTML = prixTotal + "€";
 
 // ------------------------Validation Formulaire--------------------
-let form = document.querySelector("#loginForm");
+let form = document.getElementById("loginForm");
 
 // Ecouter la modification de l'email:
-/*
+
 form.inputEmail.addEventListener("change", function () {
   validEmail(this);
 });
+form.firstname.addEventListener("change", function () {
+  validInputNotEmpty(this, "Veuillez renseigner le prénom", "errorFName");
+});
+form.lastname.addEventListener("change", function () {
+  validInputNotEmpty(this, "Veuillez renseigner le nom", "errorLName");
+});
+form.inputAddress.addEventListener("change", function () {
+  validInputNotEmpty(this, "Veuillez renseigner l'adresse", "errorAddress");
+});
+form.inputCity.addEventListener("change", function () {
+  validInputNotEmpty(this, "Veuillez renseigner la ville", "errorCity");
+});
+
 // Ecouter la soumission du formulaire
 form.addEventListener("submit", function (e) {
   e.preventDefault();
-  if (validEmail(form.inputEmail)) {
-    console.log("email valide");
-    sendOrder();
+
+  let isEmailValid = validEmail(this.inputEmail);
+  let isFirstNameValid = validInputNotEmpty(
+    this.firstname,
+    "Veuillez renseigner le prénom",
+    "errorFName"
+  );
+  let isLastNameValid = validInputNotEmpty(
+    this.lastname,
+    "Veuillez renseigner le nom",
+    "errorLName"
+  );
+  let isAddressValid = validInputNotEmpty(
+    this.inputAddress,
+    "Veuillez renseigner l'adresse",
+    "errorAddress"
+  );
+  let isCityValid = validInputNotEmpty(
+    this.inputCity,
+    "Veuillez renseigner la ville",
+    "errorCity"
+  );
+  if (
+    isEmailValid !== true ||
+    isFirstNameValid !== true ||
+    isLastNameValid !== true ||
+    isAddressValid !== true ||
+    isCityValid !== true
+  ) {
+    console.log("erreur");
   } else {
-    console.log("email non valide");
+    sendOrder();
+    console.log("jawna fisfis");
   }
 });
-*/
+// // Ecouter la saisie prenom:
+// form.firstname.addEventListener("submit", function (e) {
+//   let myInputFirstName = document.getElementById("firstname");
+//   let myRegex = /^[a-zA-Z-\s]+$/;
+//   let myError = document.getElementById("errorFName");
+//   // verifier si le champ est vide ou pas
+//   if (myInputFirstName.value.trim() == "") {
+//     myError.innerHTML = "Le champ prénom est nécessaire!";
+//     myError.style.color = "red";
+//     e.preventDefault();
+//     // verifier que le champ ne doit contenir que des lettres et des tirets
+//   } else if (myRegex.myInputFirstName.value == false) {
+//     myError.innerHTML =
+//       "Le prénom doit comporter des lettres, des tirets uniquement.";
+//     myError.style.color = "red";
+//     e.preventDefault();
+//   }
+// });
+// // Ecouter la saisie nom:
+// form.lastname.addEventListener("submit", function (e) {
+//   let myInputLastName = document.getElementById("lastname");
+// let myRegex = /^[a-zA-Z-\s]+$/;
+//   let myError = document.getElementById("errorLName");
+//   // verifier si le champ est vide ou pas
+//   if (myInputLastName.value.trim() == "") {
+//     myError.innerHTML = "Le champ nom est nécessaire!";
+//     myError.style.color = "red";
+//     e.preventDefault();
+//     // verifier que le champ ne doit contenir que des lettres et des tirets
+//   } else if (myRegex.myInputLastName.value == false) {
+//     myError.innerHTML =
+//       "Le nom doit comporter des lettres, des tirets uniquement.";
+//     myError.style.color = "red";
+//     e.preventDefault();
+//   }
+// });
+
+// Ecouter la soumission du formulaire
+
+// form.addEventListener("submit", function (e) {
+//   let inputFirstName = document.getElementById("firstname");
+//   let inputLastName = document.getElementById("lastname");
+//   let inputAddress = document.getElementById("address");
+//   let inputCity = document.getElementById("city");
+//   let error;
+
+//   if (inputFirstName.value == "") {
+//     error = "Veuillez renseigner un prénom!";
+//   }
+//   if (inputLastName.value == "") {
+//     error = "Veuillez renseigner un nom!";
+//   }
+//   if (inputAddress.value == "") {
+//     error = "Veuillez renseigner une adresse!";
+//   }
+//   if (inputCity.value == "") {
+//     error = "Veuillez renseigner une ville!";
+//   }
+//   if (validEmail(form.inputEmail)) {
+//     console.log("email valide");
+//     // sendOrder();
+//   } else {
+//     console.log("email non valide");
+//   }
+//   if (error) {
+//     e.preventDefault();
+//     document.getElementById("error").innerHTML = "erreur";
+//     console.log("erreur");
+//     return false;
+//   } else {
+//     alert("Formulaire envoyé!");
+//   }
+// });
+
+//******Valid input ****/
+validInputNotEmpty = function (input, errorMessage, errorId) {
+  if (input.value.trim() === "") {
+    document.getElementById(errorId).innerHTML = errorMessage;
+    document.getElementById(errorId).classList.add("text-danger");
+    document.getElementById(errorId).style = "display:block;";
+    return false;
+  } else {
+    document.getElementById(errorId).style = "display:none;";
+    return true;
+  }
+};
 
 //****Validation Email****/
-/*
+
 const validEmail = function (email) {
   // creation de la reg pour la validation email
   let emailRegExp = new RegExp(
@@ -111,43 +242,40 @@ const validEmail = function (email) {
   );
   // tester l'expression reguliere
   let testEmail = emailRegExp.test(email.value);
-  // variable pour designer <small> et "nextElementSibling" elle attrappe l'element juste apres
-  let small = email.nextElementSibling;
+  let emailError = document.getElementById("emailError");
 
   if (testEmail) {
-    small.innerHTML = "Adresse valide";
-    // pour eviter la duplication des classes danger ou success
-    small.classList.remove("text-danger");
-    // Ajouter une couleur au text 'adresse valide'
-    small.classList.add("text-success");
+    emailError.style = "display:none;";
+    return true;
   } else {
-    small.innerHTML = "Adresse non valide";
-    small.classList.remove("text-success");
-    small.classList.add("text-danger");
+    emailError.style = "display:block;";
+    emailError.innerHTML = "Adresse non valide";
+    // Ajouter une couleur au text 'adresse non valide'
+    emailError.classList.add("text-danger");
     return false;
   }
 };
-*/
-// Fonction qui envoie les infos à la routes POST
 
-const orderBtn = document.getElementById("validate");
+// Fonction qui envoie les infos à la route POST
 
-orderBtn.addEventListener("submit", (event) => {
-  event.preventDefault();
-  valideInput();
-});
+// const orderBtn = document.getElementById("validate");
 
-function valideInput() {
-  let emailRegExp = new RegExp(
-    "^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$",
-    "g"
-  );
-  if (emailRegExp.test(document.getElementById("email").value !== true)) {
-    alert("email invalide");
-  } else {
-    sendOrder();
-  }
-}
+// orderBtn.addEventListener("submit", (event) => {
+//   event.preventDefault();
+//   valideInput();
+// });
+
+// function valideInput() {
+//   let emailRegExp = new RegExp(
+//     "^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$",
+//     "g"
+//   );
+//   if (emailRegExp.test(document.getElementById("email").value !== true)) {
+//     alert("email invalide");
+//   } else {
+//     sendOrder();
+//   }
+// }
 
 function sendOrder() {
   let contactInput = {
@@ -176,7 +304,8 @@ function sendOrder() {
       // Récupération de l'UUID
       console.log(data.orderId);
       // Sauvegarder l'UUID dans le localstorage
-      localStorage.setItem("orderId", data.orderId);
+      localStorage.setItem("orderId", JSON.stringify(data.orderId));
+      localStorage.setItem("prixTotal", JSON.stringify(prixTotal));
 
       // Rediriger l'utilisateur sur la page de remerciement avec l"UUID affiché ainsi que le montant de la commande.
       window.location.href = "/remerciement.html";

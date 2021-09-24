@@ -55,69 +55,41 @@
       </div>
       <h1 id="emptyCart" class="center">Votre panier est vide</h1>
       <div id="container-cart">
-        <div class="mt-4 margin padding mb-3">
+        <div class="mt-4 margin padding mb-3 flex">
           <div class="mb-3">
             <h3>Récapitulatif Commande</h3>
-            <div class="table-responsive">
-              <table
-                class="table table-bordered table-striped table-borderless"
-              >
-                <thead>
-                  <tr>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Prix</th>
-                    <th scope="col">Quantité</th>
-                    <th scope="col">Panier</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <template id="templateCart">
-                    <tr>
-                      <td style="width: 25%" scope="row">
-                        <img src="" id="picture" width="25%" />
-                      </td>
-                      <td id="name">Mark</td>
-                      <td id="price">Otto</td>
-                      <td id="qte">mark@otto.red</td>
-                      <td id="panier"></td>
-                    </tr>
-                  </template>
-                </tbody>
-              </table>
+            <div>
 
-              <!-- 
-
-                <div class="col">
-                  <img id="picture" width="50" />
-
-                  <div class="div-flex col-md-6">
-                    <div id="name"></div>
-                    <div id="price"></div>
+              <template class="card mb-3" id="templateCart">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img id="picture" width="30%" />
                   </div>
-
-                  <div id="qte"></div>
+                  <div class="flex col-md-8">
+                    <div class="card-body">
+                      <div class="card-title bold" id="name"></div>
+                      <div class="card-text" id="price"></div>
+                      <div class="card-text" id="qte"></div>
+                    </div>
+                  </div>
                 </div>
-
               </template>
-              -->
+
               <div id="panier"></div>
             </div>
-            <div class="div-flex col-md-6">
-              <div class="bold">Montant Total :</div>
+            <div class="div-flex col-md-5 mt-3">
+              <div class="bold margin-right">Montant Total :</div>
               <div id="containerMontant"></div>
             </div>
           </div>
-          <div>
-            <a
-              href="#"
-              class="btn btn-primary text-right btn-style"
-              id="btnSupprimer"
-              >Vider panier</a
-            >
-          </div>
+        </div>
+        <div class="center">
+          <button class="btn btn-danger btn-style" id="btnSupprimer">
+            Vider panier
+          </button>
         </div>
         <!--Donnee formulaire  -->
-        <form method="POST" id="validate">
+        <form method="POST" id="loginForm">
           <div class="margin margin-right padding">
             <div class="row g-3">
               <div>
@@ -129,8 +101,10 @@
                   class="form-control"
                   placeholder="Prénom"
                   aria-label="First name"
+                  name="firstname"
                   id="firstname"
                 />
+                <div class="small" id="errorFName"></div>
               </div>
               <div class="col">
                 <input
@@ -138,8 +112,10 @@
                   class="form-control"
                   placeholder="Nom"
                   aria-label="Last name"
+                  name="lastname"
                   id="lastname"
                 />
+                <div class="small" id="errorLName"></div>
               </div>
             </div>
             <div class="col-md-6">
@@ -150,7 +126,7 @@
                 name="inputEmail"
                 id="email"
               />
-              <small></small>
+              <div class="small" id="emailError"></div>
             </div>
 
             <div class="col-12">
@@ -162,6 +138,7 @@
                 placeholder="40 rue de la"
                 id="address"
               />
+              <div class="small" id="errorAddress"></div>
             </div>
 
             <div class="col-md-8 mb-3">
@@ -172,15 +149,21 @@
                 name="inputCity"
                 id="city"
               />
+              <div class="small" id="errorCity"></div>
             </div>
 
-            <div class="col-12">
-              <button class="btn btn-primary btn-block mb-3" type="submit">
+            <div class="d-grid gap-2 col-md-4 mx-auto">
+              <button
+                class="btn btn-primary mb-3"
+                type="submit"
+                id="btnValider"
+              >
                 Valider
               </button>
             </div>
           </div>
         </form>
+        <p id="error"></p>
       </div>
       <!--FOOTER-->
       <footer class="fixed-bottom">

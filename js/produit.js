@@ -69,20 +69,19 @@ btn.addEventListener("click", function (event) {
   let produitsEnregistresLocalStorage = JSON.parse(
     localStorage.getItem("panier")
   );
-  // console.log(produitsEnregistresLocalStorage);
 
   // Fenetre pop-up de confirmation
-  // function popupConfirmation() {
-  //   if (
-  //     window.confirm(
-  //       `Votre article a bien été enregistré, voulez vous continuer ou annuler?`
-  //     )
-  //   ) {
-  //     window.location.href = "panier.html";
-  //   } else {
-  //     window.location.href = "index.html";
-  //   }
-  // }
+  function popupConfirmation() {
+    if (
+      window.confirm(
+        `Votre article a bien été enregistré, voulez vous continuer ou annuler?`
+      )
+    ) {
+      window.location.href = "panier.html";
+    } else {
+      window.location.href = "index.html";
+    }
+  }
 
   // fonction pour modifier quantite
   function updateQte(produit, quantiteAajouter) {
@@ -120,7 +119,7 @@ btn.addEventListener("click", function (event) {
       );
     }
 
-    // popupConfirmation();
+    popupConfirmation();
 
     // --- Si le produit n'existe pas dans le localstorage :
   } else {

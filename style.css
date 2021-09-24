@@ -23,8 +23,9 @@
   color: rgb(184, 48, 123);
 }
 .btn-style {
-  background-color: rgb(206, 65, 96);
-  border-color: rgb(206, 65, 96);
+  width: 15%;
+  height: 50px;
+  text-align: center;
 }
 
 #container-cart,
@@ -33,7 +34,7 @@
 }
 .div-flex {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 .padding {
   padding-left: 20px;
@@ -51,3 +52,14 @@
   justify-content: space-evenly;
 }
 
+.flex {
+  display: flex;
+  justify-content: center;
+}
+.small {
+  font-weight: 5px;
+}
+.padding {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
