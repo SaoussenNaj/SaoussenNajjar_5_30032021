@@ -24,32 +24,42 @@
   <body>
     <div class="container-fluid">
       <div class="row">
-        <nav class="col navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="index.html">
-            <img id="logo" src="images/logo.png" alt="" />
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarContent"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div
-            id="navbarContent"
-            class="collapse navbar-collapse justify-content-end"
-          >
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="index.html">Accueil</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="panier.html"
-                  ><i class="fas fa-shopping-cart margin-right"></i>Panier</a
-                >
-              </li>
-            </ul>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+              <img
+                class="mb-0"
+                id="logo"
+                src="images/logo.png"
+                alt="logo du site"
+            /></a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div
+              class="collapse navbar-collapse justify-content-end"
+              id="navbarSupportedContent"
+            >
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="panier.html"
+                    ><i
+                      class="fas fa-shopping-cart margin-right"
+                      aria-hidden="true"
+                    ></i
+                    >Panier</a
+                  >
+                </li>
+              </ul>
+            </div>
           </div>
         </nav>
       </div>
@@ -59,7 +69,6 @@
           <div class="mb-3">
             <h3>Récapitulatif Commande</h3>
             <div>
-
               <template class="card mb-3" id="templateCart">
                 <div class="row g-0">
                   <div class="col-md-4">
@@ -122,6 +131,7 @@
               <label for="inputEmail" class="form-label">Email</label>
               <input
                 type="email"
+                placeholder="votreAdresse@mail.com"
                 class="form-control"
                 name="inputEmail"
                 id="email"
@@ -135,7 +145,7 @@
                 type="text"
                 class="form-control"
                 name="inputAddress"
-                placeholder="40 rue de la"
+                placeholder="40 rue de la paix"
                 id="address"
               />
               <div class="small" id="errorAddress"></div>
@@ -146,6 +156,7 @@
               <input
                 type="text"
                 class="form-control"
+                placeholder="Votre ville"
                 name="inputCity"
                 id="city"
               />

@@ -24,37 +24,42 @@
   <body>
     <div class="container-fluid">
       <div class="row">
-        <nav class="col navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="#">
-            <img
-              class="mb-0"
-              id="logo"
-              src="images/logo.png"
-              alt="logo du site"
-            />
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarContent"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div
-            id="navbarContent"
-            class="collapse navbar-collapse justify-content-end"
-          >
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="index.html">Accueil</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="panier.html"
-                  ><i class="fas fa-shopping-cart margin-right"></i>Panier</a
-                >
-              </li>
-            </ul>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+              <img
+                class="mb-0"
+                id="logo"
+                src="images/logo.png"
+                alt="logo du site"
+            /></a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div
+              class="collapse navbar-collapse justify-content-end"
+              id="navbarSupportedContent"
+            >
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="panier.html"
+                    ><i
+                      class="fas fa-shopping-cart margin-right"
+                      aria-hidden="true"
+                    ></i
+                    >Panier</a
+                  >
+                </li>
+              </ul>
+            </div>
           </div>
         </nav>
       </div>
@@ -121,8 +126,13 @@
     </div>
     <script src="js/index.js"></script>
     <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
+      integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"
+      integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/"
       crossorigin="anonymous"
     ></script>
   </body>
