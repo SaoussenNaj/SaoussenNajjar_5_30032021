@@ -57,7 +57,7 @@
   justify-content: center;
 }
 .small {
-  font-weight: 5px;
+  font-weight: normal;
 }
 .padding {
   padding-top: 60px;
