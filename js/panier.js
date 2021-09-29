@@ -16,9 +16,11 @@ const cart = document.getElementById("container-cart");
 
 //1. afficher la liste des produits selectionnes
 function displayCart() {
-  //a. si le panier est vide:
+  //a. si le panier est vide: on affiche le message"votre panier est vide"
   if (produitsEnregistresLocalStorage.length === 0) {
     document.getElementById("emptyCart").style = "display:block;";
+
+  // b. si la panier n'est pas vide on affiche le recap commande et le formulaire
   } else {
     document.getElementById("container-cart").style = "display:block;";
     // boucler sur le localstorage
@@ -139,7 +141,6 @@ form.addEventListener("submit", function (e) {
     console.log("erreur");
   } else {
     sendOrder();
-    console.log("jawna fisfis");
   }
 });
 
